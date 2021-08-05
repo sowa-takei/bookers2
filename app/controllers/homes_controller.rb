@@ -3,7 +3,6 @@ class HomesController < ApplicationController
   end
 
   def about
-    @home = Home
   end
 
 end

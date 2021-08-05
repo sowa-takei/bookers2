@@ -1,23 +1,22 @@
-<div>
 <main>
-　<p id="notice">Welcome! You have signed up successfully.</p>
+<p id="notice">Welcome! You have signed up successfully.</p>
    <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-        <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 
    <tabl class="table">
-   <tbody>
-    <tr></tr>
-    <tr>
-	   <th>name</th>
-	   <th></th>
-    </tr>
-    <tr>
-	   <th>introduction</th>
-	   <th></th>
-    </tr>
+    <tbody>
+     <tr></tr>
+     <tr>
+	    <th>name</th>
+	    <th><%= @user.name %></th>
+     </tr>
+     <tr>
+	    <th>introduction</th>
+	    <th></th>
+     </tr>
     </tbody>
 
 <div class="row">
@@ -56,5 +55,4 @@
   </div>
 </div>
 </main>
-<% end %>
 
