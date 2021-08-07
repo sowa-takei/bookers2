@@ -1,0 +1,25 @@
+<html>
+<body>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+  　<div class="row">
+    　<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		　<h1>Editing Book</h1>
+    	　<div class="form-group">
+          <!-- form_with部分 -->
+         <%= form_with model:@book, local: true do |f| %>
+          <h4>title</h4>
+           <%= f.text_field :title %>
+          <h4>option</h4>
+           <%= f.text_area :body %>
+          <%= f.submit 'Create Book' %>
+         <% end %>
+  		  <%= link_to "Show",book_path(@book) %>
+  		  <a class="back" href="/books">Back</a>
+     </div>
+   </div>
+  </div>
+</main>
+</body>
+</html>

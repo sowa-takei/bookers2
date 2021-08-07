@@ -1,57 +1,19 @@
-<html><head><style type="text/css">.turbolinks-progress-bar {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: #0076ff;
-  z-index: 9999;
-  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
-  transform: translate3d(0, 0, 0);
-}</style>
-
-
-
-
-
-    <link rel="stylesheet" media="all" href="/assets/application-16605eadccf37c23d1fa922dd614f45b9f2cf25723e2e4032f1975b02ea7d11f.css" data-turbolinks-track="reload">
-    <script src="/assets/application-3ac47b8571e58aab844e8d0a988f0f55d8a16c1a75953470343f79cf1bec8528.js" data-turbolinks-track="reload"></script>
-  <title>Bookers2Ver2</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="LK0T5b/Nlay7EebN+IA4n1HfskxRUhC/CL0Il5aSRoJZ33chSe6X9WJKsegbJHNk/pK7VT8/9lQ1Sh5ub8atAg=="><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></head>
-  <body>
-    <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<main>
+    <p id="notice"></p>
     <div class="container">
-      <a class="navbar-brand" href="/"><span>Bookers</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li><a class="fas fa-home nav-link text-light" href="/users/11085"> Home</a></li>
-          <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
-          <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
-          <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-      <main>
-          <%= form_with model:@user, local:true do |f| %>
-        <p id="notice"></p>
-        <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h2>User info</h2>
-    <form enctype="multipart/form-data" action="/users/11085" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="gJYWxUqx8gQWaHnlFsA73j8w92jHoyod+yVwzMW8sdmxBtQBumQCkEi//Y/3KMN+Dbl2CMq7fRJkT07Ed7qVmA==">
-
+     <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
       <div class="form-group">
+        <%= form_with model:@user, local:true do |f| %>
         <label for="user_name">Name</label>
         <input class="form-control name" type="text" value="竹井 宗和" name="user[name]" id="user_name">
+
       </div>
-     <div class="form-group">
+      <div class="form-group">
         <label for="user_image">Image</label>
-        <input value="{}" data-reference="5a0f1d079df0956e9d6b7d21b48a0f43" type="hidden" name="user[profile_image]"><input class="form-control-file user_image" data-reference="5a0f1d079df0956e9d6b7d21b48a0f43" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image">
+         <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+
       </div>
       <div class="form-group">
         <label for="user_introduction">Introduction</label>
@@ -60,13 +22,14 @@
       <div class="form-group">
         <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
       </div>
-</form>  
-</div>
-</div>
-<% end 
+      </form>
+     </div>
+    </div>
+  </div>
+</main>
+<% end %>
 
-      </div></main>
-    <footer>
+<footer>
   <div class="container mt-5">
   	<div class="row">
     	<div class="mx-auto">
@@ -75,7 +38,5 @@
     </div>
   </div>
 </footer>
-
-
-
-</body></html>
+</body>
+</html>

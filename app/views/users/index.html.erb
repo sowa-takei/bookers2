@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg"><table class="table">
+      <img class="attachment user profile_image fallback" <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
   <tbody><tr></tr>
   <tr>
 	  <th>name</th>
@@ -17,7 +17,7 @@
 	  <th></th>
   </tr>
 </tbody></table>
-　
+
 <div class="row">
   <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_11047" href="/users/pa/edit"></a>
 </div>
@@ -48,9 +48,9 @@
   </thead>
   <tbody>
       <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
+        <td><img class="attachment user profile_image fallback" <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %></td>
         <td><%= @user_name %></td>
-        <td><a href="/users/path">Show</a></td>
+        <td><%= link_to "Show",user_path(user) %></td>
       </tr>
   </tbody>
 </table>
