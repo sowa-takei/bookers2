@@ -4,16 +4,16 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100" %>
-  <tbody>
-   <tr></tr>
-   <tr>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+ <table class="table">
+  <tbody><tr></tr>
+  <tr>
 	  <th>name</th>
-	  <th><%= @users.name %></th>
-   </tr>
+	  <th><%= @user.name %></th>
+  </tr>
   <tr>
 	  <th>introduction</th>
-	  <th></th>
+	  <th><%= @user.introduction %></th>
   </tr>
 </tbody>
 </table>
@@ -50,16 +50,14 @@
      <tbody>
      <tr>
        <% @users.each do |user| %>
-        <%= form_with model:@user, local:true do |f| %>
-        <td><img class="attachment user profile_image fallback" <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %></td>
+        <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %></td>
         <td><%= user.name %></td>
         <td><%= link_to "Show",user_path(user) %></td>
       </tr>
-       <% end %>
+      <% end %>
       </tbody>
      </table>
     </div>
   </div>
 </div>
 </main>
-<% end %>
