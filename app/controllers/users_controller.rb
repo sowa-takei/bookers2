@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :correct_post,only: [:edit]
   protect_from_forgery
 
 
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @book = Book.new
 
   end
 
@@ -21,9 +23,19 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+     redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
+
+  def correct_post
+        @user = User.find(params[:id])
+  unless @user.id == current_user.id
+      redirect_to user_path(@user)
+  end
+end
 
   private
 
