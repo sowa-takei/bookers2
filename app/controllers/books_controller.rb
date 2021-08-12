@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :correct_post,only: [:edit]
   protect_from_forgery
 
   def new
@@ -22,7 +23,6 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     @user = current_user
-
   end
 
   def show
@@ -44,10 +44,17 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-    redirect_to book_path(@book), notice:"You have updated book successfully."
+     redirect_to book_path(@book), notice:"You have updated book successfully."
     else
-      render :edit
+     render :edit
     end
+  end
+
+  def correct_post
+   @book = Book.find(params[:id])
+  unless @book.user.id == current_user.id
+      redirect_to books_path
+  end
   end
 
 

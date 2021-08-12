@@ -187,16 +187,16 @@ Userモデルのテスト
 [32m      自己紹介編集フォームに自分の自己紹介文が表示される[0m
 [32m      Update Userボタンが表示される[0m
     更新成功のテスト
-[31m      nameが正しく更新される (FAILED - 2)[0m
-[31m      introductionが正しく更新される (FAILED - 3)[0m
-[31m      リダイレクト先が、自分のユーザ詳細画面になっている (FAILED - 4)[0m
+[32m      nameが正しく更新される[0m
+[32m      introductionが正しく更新される[0m
+[32m      リダイレクト先が、自分のユーザ詳細画面になっている[0m
 
 [STEP3] 仕上げのテスト
   サクセスメッセージのテスト
 [32m    ユーザ新規登録成功時[0m
 [32m    ユーザログイン成功時[0m
 [32m    ユーザログアウト成功時[0m
-[31m    ユーザのプロフィール情報更新成功時 (FAILED - 5)[0m
+[32m    ユーザのプロフィール情報更新成功時[0m
 [32m    投稿データの新規投稿成功時: 投稿一覧画面から行います。[0m
 [32m    投稿データの更新成功時[0m
   処理失敗時のテスト
@@ -207,7 +207,7 @@ Userモデルのテスト
     ユーザのプロフィール情報編集失敗: nameを1文字にする
 [32m      更新されない[0m
 [32m      ユーザ編集画面を表示しており、フォームの内容が正しい[0m
-[31m      バリデーションエラーが表示される (FAILED - 6)[0m
+[31m      バリデーションエラーが表示される (FAILED - 2)[0m
     投稿データの新規投稿失敗: 投稿一覧画面から行い、titleを空にする
 [32m      投稿が保存されない[0m
 [32m      投稿一覧画面を表示している[0m
@@ -240,11 +240,11 @@ Userモデルのテスト
 [32m        自分の名前と紹介文は表示されない[0m
 [32m        自分のユーザ編集画面へのリンクは存在しない[0m
     他人の投稿編集画面
-[31m      遷移できず、投稿一覧画面にリダイレクトされる (FAILED - 7)[0m
+[31m      遷移できず、投稿一覧画面にリダイレクトされる (FAILED - 3)[0m
     他人のユーザ詳細画面のテスト
       表示の確認
 [32m        URLが正しい[0m
-[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 8)[0m
+[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 4)[0m
 [32m        投稿一覧に他人の投稿のtitleが表示され、リンクが正しい[0m
 [32m        投稿一覧に他人の投稿のopinionが表示される[0m
 [32m        自分の投稿は表示されない[0m
@@ -254,11 +254,11 @@ Userモデルのテスト
 [32m        自分の名前と紹介文は表示されない[0m
 [32m        自分のユーザ編集画面へのリンクは存在しない[0m
     他人のユーザ情報編集画面
-[31m      遷移できず、自分のユーザ詳細画面にリダイレクトされる (FAILED - 9)[0m
+[31m      遷移できず、自分のユーザ詳細画面にリダイレクトされる (FAILED - 5)[0m
   グリッドシステムのテスト: container, row, col-md-〇を正しく使えている
 [32m    ユーザ一覧画面[0m
 [32m    ユーザ詳細画面[0m
-[31m    投稿一覧画面 (FAILED - 10)[0m
+[31m    投稿一覧画面 (FAILED - 6)[0m
 [32m    投稿詳細画面[0m
   アイコンのテスト
     トップ画面
@@ -288,55 +288,7 @@ Failures:
      [31m  expected to find link "" with href "/users/1" but there were no matches[0m
      [36m# ./spec/system/02_after_login_spec.rb:52:in `block (4 levels) in <main>'[0m
 
-  2) [STEP2] ユーザログイン後のテスト 自分のユーザ情報編集画面のテスト 更新成功のテスト nameが正しく更新される
-     [31mFailure/Error: expect(user.reload.name).not_to eq @user_old_name[0m
-     [31m[0m
-     [31m  expected: value != "hrikjttdqq"[0m
-     [31m       got: "hrikjttdqq"[0m
-     [31m[0m
-     [31m  (compared using ==)[0m
-     [36m# ./spec/system/02_after_login_spec.rb:386:in `block (4 levels) in <main>'[0m
-
-  3) [STEP2] ユーザログイン後のテスト 自分のユーザ情報編集画面のテスト 更新成功のテスト introductionが正しく更新される
-     [31mFailure/Error: expect(user.reload.introduction).not_to eq @user_old_intrpduction[0m
-     [31m[0m
-     [31m  expected: value != "og34vy893zct7ex1506s"[0m
-     [31m       got: "og34vy893zct7ex1506s"[0m
-     [31m[0m
-     [31m  (compared using ==)[0m
-     [36m# ./spec/system/02_after_login_spec.rb:389:in `block (4 levels) in <main>'[0m
-
-  4) [STEP2] ユーザログイン後のテスト 自分のユーザ情報編集画面のテスト 更新成功のテスト リダイレクト先が、自分のユーザ詳細画面になっている
-     [31mFailure/Error: expect(current_path).to eq '/users/' + user.id.to_s[0m
-     [31m[0m
-     [31m  expected: "/users/2"[0m
-     [31m       got: "/users/2/edit"[0m
-     [31m[0m
-     [31m  (compared using ==)[0m
-     [36m# ./spec/system/02_after_login_spec.rb:392:in `block (4 levels) in <main>'[0m
-
-  5) [STEP3] 仕上げのテスト サクセスメッセージのテスト ユーザのプロフィール情報更新成功時
-     [31mFailure/Error: is_expected.to have_content 'successfully'[0m
-     [31m[0m
-     [31mCapybara::Ambiguous:[0m
-     [31m  Ambiguous match, found 2 elements matching visible xpath "/html"[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/finders.rb:301:in `block in synced_resolve'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/base.rb:77:in `synchronize'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/finders.rb:53:in `find'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/document.rb:24:in `text'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/queries/text_query.rb:108:in `text'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/queries/text_query.rb:29:in `resolve_for'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/matchers.rb:862:in `block in _verify_text'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/base.rb:83:in `synchronize'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/matchers.rb:861:in `_verify_text'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/node/matchers.rb:676:in `assert_text'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/session.rb:768:in `block (2 levels) in <class:Session>'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rspec/matchers/have_text.rb:10:in `element_matches?'[0m
-     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rspec/matchers/base.rb:51:in `matches?'[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:45:in `block (3 levels) in <main>'[0m
-
-  6) [STEP3] 仕上げのテスト 処理失敗時のテスト ユーザのプロフィール情報編集失敗: nameを1文字にする バリデーションエラーが表示される
+  2) [STEP3] 仕上げのテスト 処理失敗時のテスト ユーザのプロフィール情報編集失敗: nameを1文字にする バリデーションエラーが表示される
      [31mFailure/Error: expect(page).to have_content "is too short (minimum is 2 characters)"[0m
      [31m[0m
      [31mCapybara::Ambiguous:[0m
@@ -357,7 +309,7 @@ Failures:
      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.35.3/lib/capybara/rspec/matchers/base.rb:51:in `matches?'[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:116:in `block (4 levels) in <main>'[0m
 
-  7) [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿編集画面 遷移できず、投稿一覧画面にリダイレクトされる
+  3) [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿編集画面 遷移できず、投稿一覧画面にリダイレクトされる
      [31mFailure/Error: expect(current_path).to eq '/books'[0m
      [31m[0m
      [31m  expected: "/books"[0m
@@ -366,12 +318,12 @@ Failures:
      [31m  (compared using ==)[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:263:in `block (4 levels) in <main>'[0m
 
-  8) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
+  4) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
      [31mFailure/Error: expect(page).to have_link '', href: user_path(other_user)[0m
      [31m  expected to find link "" with href "/users/1" but there were no matches[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:277:in `block (5 levels) in <main>'[0m
 
-  9) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ情報編集画面 遷移できず、自分のユーザ詳細画面にリダイレクトされる
+  5) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ情報編集画面 遷移できず、自分のユーザ詳細画面にリダイレクトされる
      [31mFailure/Error: expect(current_path).to eq '/users/' + user.id.to_s[0m
      [31m[0m
      [31m  expected: "/users/2"[0m
@@ -380,21 +332,17 @@ Failures:
      [31m  (compared using ==)[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:312:in `block (4 levels) in <main>'[0m
 
-  10) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿一覧画面
-      [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-3'[0m
-      [31m  expected to find css ".container .row .col-md-3" but there were no matches[0m
-      [36m# ./spec/system/03_finishing_touches_spec.rb:339:in `block (3 levels) in <main>'[0m
+  6) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿一覧画面
+     [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-3'[0m
+     [31m  expected to find css ".container .row .col-md-3" but there were no matches[0m
+     [36m# ./spec/system/03_finishing_touches_spec.rb:339:in `block (3 levels) in <main>'[0m
 
-Finished in 16.85 seconds (files took 1.96 seconds to load)
-[31m197 examples, 10 failures[0m
+Finished in 16.64 seconds (files took 1.68 seconds to load)
+[31m197 examples, 6 failures[0m
 
 Failed examples:
 
 [31mrspec ./spec/system/02_after_login_spec.rb:50[0m [36m# [STEP2] ユーザログイン後のテスト 投稿一覧画面のテスト 表示内容の確認 自分と他人の画像のリンク先が正しい[0m
-[31mrspec ./spec/system/02_after_login_spec.rb:385[0m [36m# [STEP2] ユーザログイン後のテスト 自分のユーザ情報編集画面のテスト 更新成功のテスト nameが正しく更新される[0m
-[31mrspec ./spec/system/02_after_login_spec.rb:388[0m [36m# [STEP2] ユーザログイン後のテスト 自分のユーザ情報編集画面のテスト 更新成功のテスト introductionが正しく更新される[0m
-[31mrspec ./spec/system/02_after_login_spec.rb:391[0m [36m# [STEP2] ユーザログイン後のテスト 自分のユーザ情報編集画面のテスト 更新成功のテスト リダイレクト先が、自分のユーザ詳細画面になっている[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:38[0m [36m# [STEP3] 仕上げのテスト サクセスメッセージのテスト ユーザのプロフィール情報更新成功時[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:115[0m [36m# [STEP3] 仕上げのテスト 処理失敗時のテスト ユーザのプロフィール情報編集失敗: nameを1文字にする バリデーションエラーが表示される[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:261[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿編集画面 遷移できず、投稿一覧画面にリダイレクトされる[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:276[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい[0m

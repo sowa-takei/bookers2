@@ -1,44 +1,42 @@
-<main>
-    <p id="notice"></p>
-    <div class="container">
-     <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>User info</h2>
-      <% if @user.errors.any? %>
-        <div id="error_explanation">
-        <h3><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h3>
-       <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
-      <div class="form-group">
-        <% if @user.id == current_user.id %>
-        <%= form_with model:@user, local:true do |f| %>
-        <label for="user_name">Name</label>
-        <%= f.text_field :name, class:"form-control book_title" %>
-      </div>
+ <p id="notice"></p>
+ <div class="container">
+  <div class="row">
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <h2>User info</h2>
+   <% if @user.errors.any? %>
+   <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h3>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+    </ul>
+   </div>
+   <% end %>
 
-      <div class="form-group">
-        <label for="user_image">Image</label>
-         <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
-      </div>
-      
-      <div class="form-group">
-        <label for="user_introduction">Introduction</label>
-        <%= f.text_area :introduction, class:"form-control introduction"  %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit 'Update User',class: "btn btn-secondary" %>
-      </div>
-      <% end %>
-      <% end %>
+   <% if @user.id == current_user.id %>
+    <%= form_with model: @user, local: true do |f| %>
+     <div class="form-group">
+      <label for="user_name">Name</label>
+      <%= f.text_field :name, class:"form-control book_title" %>
      </div>
-    </div>
+
+     <div class="form-group">
+      <label for="user_image">Image</label>
+       <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+     </div>
+
+     <div class="form-group">
+      <label for="user_introduction">Introduction</label>
+      <%= f.text_area :introduction, class:"form-control introduction"  %>
+     </div>
+
+     <div class="form-group">
+      <%= f.submit 'Update User',class: "btn btn-secondary" %>
+     </div>
+    <% end %>
+   <% end %>
+   </div>
   </div>
-</main>
-</body>
-</html>
+ </div>
+
